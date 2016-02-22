@@ -1,13 +1,15 @@
 package com.sennue.store_front.storefront
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.View
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
+import android.widget.LinearLayout
+import android.widget.TableLayout
+import android.widget.TableRow
 
 class StoreFrontActivity : AppCompatActivity() {
 
@@ -38,5 +40,31 @@ class StoreFrontActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        fillTable()
+    }
+
+    fun fillTable() {
+        val table = findViewById(R.id.inventoryTable) as TableLayout
+        table.removeAllViews()
+
+        addRow(table)
+        addRow(table)
+        addRow(table)
+    }
+
+    fun addRow(table : TableLayout) {
+        val inflater = applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val tableRow = inflater.inflate(R.layout.inventory_row, null) as TableRow
+
+        val itemLeft = tableRow.findViewById(R.id.inventoryItemLeft) as LinearLayout
+        itemLeft.id = 0
+        val itemRight = tableRow.findViewById(R.id.inventoryItemRight) as LinearLayout
+        itemRight.id = 1
+
+        table.addView(tableRow)
     }
 }

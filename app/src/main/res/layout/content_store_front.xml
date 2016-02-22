@@ -10,32 +10,10 @@
         tools:context="com.sennue.store_front.storefront.StoreFrontActivity">
 
     <TableLayout
-            android:id="@+id/categoryLinearLayout1"
+            android:id="@+id/inventoryTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <include layout="@layout/inventory_row"/>
-        <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp">
-            <TextView
-                    android:id="@+id/textView1l"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="wrap_content"
-                    android:text="@string/large_text"
-                    android:layout_gravity="start"
-                    android:layout_margin="4dp"/>
-            <TextView
-                    android:id="@+id/textView1r"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="wrap_content"
-                    android:text="@string/large_text"
-                    android:layout_gravity="end"
-                    android:layout_margin="4dp"/>
-        </TableRow>
     </TableLayout>
 
 </android.support.v4.widget.NestedScrollView>

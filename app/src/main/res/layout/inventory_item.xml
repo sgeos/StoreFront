@@ -71,7 +71,7 @@
                 android:paddingRight="@dimen/inventory_info_padding"
         />
         <TextView
-                android:id="@+id/priceText"
+                android:id="@+id/inventoryPriceText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero_price"
