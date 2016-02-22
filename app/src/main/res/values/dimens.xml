@@ -2,4 +2,9 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="button_size">28dp</dimen>
+    <dimen name="count_width">32dp</dimen>
+    <dimen name="price_width">72dp</dimen>
+    <dimen name="inventory_font_size">20sp</dimen>
+    <dimen name="inventory_info_padding">4dp</dimen>
 </resources>

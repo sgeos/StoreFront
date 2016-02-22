@@ -21,7 +21,7 @@
             <TextView
                     android:id="@+id/textView1l"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
                     android:text="@string/large_text"
                     android:layout_gravity="start"
@@ -29,7 +29,7 @@
             <TextView
                     android:id="@+id/textView1r"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
                     android:text="@string/large_text"
                     android:layout_gravity="end"
