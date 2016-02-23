@@ -3,6 +3,7 @@ package com.sennue.store_front.storefront
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.annotation.RawRes
 import android.support.design.widget.FloatingActionButton
@@ -14,7 +15,14 @@ import android.widget.*
 import com.github.salomonbrys.kotson.fromJson
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import rx.Observable
+import rx.Subscriber
+import rx.android.schedulers.AndroidSchedulers
+import rx.exceptions.OnErrorThrowable
+import rx.functions.Func1
+import rx.schedulers.Schedulers
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.URL
@@ -100,5 +108,26 @@ class StoreFrontActivity : AppCompatActivity() {
         likes.text = "${item.likes} "
         val price : TextView = itemView.findViewById(R.id.inventoryPriceText) as TextView
         price.text = "$ ${NumberFormat.getNumberInstance(Locale.US).format(item.price)} "
+
+        rx.Observable.just(URL(item.photo))
+                .map(Func1<URL, Drawable> { url ->
+                    var bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+                    return@Func1 BitmapDrawable(resources, bitmap)
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(object : Subscriber<Drawable>() {
+                    override fun onNext(drawable : Drawable?) {
+                        image.background = drawable
+                    }
+
+                    override fun onError(error: Throwable) {
+                        System.err.println("Error: " + error.message)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                }
+                )
     }
 }
