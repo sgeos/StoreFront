@@ -98,10 +98,6 @@ class StoreFrontActivity : AppCompatActivity() {
         val image : TextView = itemView.findViewById(R.id.inventoryImage) as TextView
         image.height = image.width
         image.text = item.name
-        //val url : URL = URL(item.photo)
-        //var bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-        //val drawable = BitmapDrawable(resources, bitmap)
-        //image.background = drawable
         val comments : TextView = itemView.findViewById(R.id.inventoryCommentText) as TextView
         comments.text = "${item.comments} "
         val likes : TextView = itemView.findViewById(R.id.inventoryLikeText) as TextView

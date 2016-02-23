@@ -93,4 +93,8 @@
     <string name="sell_button_text">Sell</string>
     <string name="zero_count">0 </string>
     <string name="zero_price">$ 0 </string>
+    <string name="category_null">Category</string>
+    <string name="category_clothes">Clothes</string>
+    <string name="category_toys">Toys</string>
+    <string name="category_kitchen">Kitchen</string>
 </resources>
